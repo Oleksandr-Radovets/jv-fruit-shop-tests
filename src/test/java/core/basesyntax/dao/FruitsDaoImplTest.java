@@ -1,20 +1,19 @@
-package core.basesyntax;
+package core.basesyntax.dao;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import core.basesyntax.dao.FruitsDao;
-import core.basesyntax.dao.FruitsDaoImpl;
 import core.basesyntax.db.Storage;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FruitsDaoImplTest {
-    private final FruitsDao dao = new FruitsDaoImpl();
+    private FruitsDao dao;
 
     @BeforeEach
     void setup() {
+        dao = new FruitsDaoImpl();
         Storage.fruitStorage.clear();
     }
 

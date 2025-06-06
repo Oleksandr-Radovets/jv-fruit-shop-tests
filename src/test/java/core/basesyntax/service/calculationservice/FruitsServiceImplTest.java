@@ -1,4 +1,4 @@
-package core.basesyntax;
+package core.basesyntax.service.calculationservice;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import core.basesyntax.db.Storage;
 import core.basesyntax.entity.FruitTransaction;
-import core.basesyntax.service.calculationservice.FruitsServiceImpl;
 import core.basesyntax.service.handler.BalanceOperation;
 import core.basesyntax.service.handler.OperationHandler;
 import core.basesyntax.service.handler.PurchaseOperation;
@@ -25,7 +24,7 @@ public class FruitsServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        Storage.fruitStorage.clear(); // Очистити сховище перед кожним тестом
+        Storage.fruitStorage.clear();
 
         Map<FruitTransaction.Operation, OperationHandler> handlers = new HashMap<>();
         handlers.put(FruitTransaction.Operation.BALANCE, new BalanceOperation());

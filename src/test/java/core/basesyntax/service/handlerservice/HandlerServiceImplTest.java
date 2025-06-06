@@ -1,4 +1,4 @@
-package core.basesyntax;
+package core.basesyntax.service.handlerservice;
 
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -8,8 +8,6 @@ import core.basesyntax.service.handler.BalanceOperation;
 import core.basesyntax.service.handler.PurchaseOperation;
 import core.basesyntax.service.handler.ReturnOperation;
 import core.basesyntax.service.handler.SupplyOperation;
-import core.basesyntax.service.handlerservice.HandlerService;
-import core.basesyntax.service.handlerservice.HandlerServiceImpl;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 

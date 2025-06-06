@@ -1,17 +1,21 @@
-package core.basesyntax;
+package core.basesyntax.service.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import core.basesyntax.entity.FruitTransaction;
-import core.basesyntax.service.parser.TransactionParser;
-import core.basesyntax.service.parser.TransactionParserImpl;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TransactionParserImplTest {
-    private final TransactionParser parser = new TransactionParserImpl();
+    private TransactionParser parser;
+
+    @BeforeEach
+    void setUp() {
+        parser = new TransactionParserImpl();
+    }
 
     @Test
     void parse_validTransactions_success() {

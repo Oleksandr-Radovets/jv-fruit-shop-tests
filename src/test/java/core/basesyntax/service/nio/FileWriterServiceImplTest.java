@@ -1,21 +1,25 @@
-package core.basesyntax;
+package core.basesyntax.service.nio;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import core.basesyntax.service.nio.FileWriterService;
-import core.basesyntax.service.nio.FileWriterServiceImpl;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FileWriterServiceImplTest {
-    private final FileWriterService fileWriterService = new FileWriterServiceImpl();
+    private FileWriterService fileWriterService;
     private Path tempFile;
+
+    @BeforeEach
+    public void setUp() throws IOException {
+        fileWriterService = new FileWriterServiceImpl();
+    }
 
     @AfterEach
     void tearDown() throws IOException {

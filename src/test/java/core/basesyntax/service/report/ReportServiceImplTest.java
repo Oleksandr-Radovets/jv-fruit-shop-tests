@@ -1,4 +1,4 @@
-package core.basesyntax;
+package core.basesyntax.service.report;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -6,13 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import core.basesyntax.dao.FruitsDao;
 import core.basesyntax.dao.FruitsDaoImpl;
 import core.basesyntax.db.Storage;
-import core.basesyntax.service.report.ReportService;
-import core.basesyntax.service.report.ReportServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ReportServiceImplTest {
-    private static final String LINE_SEPARATOR = System.lineSeparator();
     private ReportService reportService;
     private FruitsDao fruitsDao;
 
@@ -25,7 +22,7 @@ public class ReportServiceImplTest {
 
     @Test
     void reportAllFruits_emptyStorage_shouldReturnOnlyHeader() {
-        String expected = "fruit,quantity" + LINE_SEPARATOR;
+        String expected = "fruit,quantity" + System.lineSeparator();
         String actual = reportService.reportAllFruits();
 
         assertEquals(expected, actual);
@@ -37,7 +34,7 @@ public class ReportServiceImplTest {
         fruitsDao.addFruit("banana", 5);
         fruitsDao.addFruit("orange", 7);
 
-        String expectedHeader = "fruit,quantity" + LINE_SEPARATOR;
+        String expectedHeader = "fruit,quantity" + System.lineSeparator();
         String report = reportService.reportAllFruits();
 
         assertTrue(report.startsWith(expectedHeader));
